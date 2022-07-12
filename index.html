@@ -36,7 +36,7 @@
       .card {
         margin: 0 auto;
         margin-top: 40px;
-        width: 55%;
+
         height: 77vh;
         box-shadow: #d4d4d4 0px 0px 10px;
         border-radius: 0;
@@ -213,10 +213,12 @@
       sup a {
         text-decoration: none;
       }
-      p.open-source {
-        margin-left: 287px;
-        margin-top: 20px;
-        font-size: 13px;
+      .weather-app-wrapper {
+        max-width: 55%;
+        margin: 0 auto;
+      }
+      .open-source {
+        margin-top: 27px;
       }
       p.open-source a {
         text-decoration: none;
@@ -229,132 +231,136 @@
   </head>
   <body>
     <div class="card-container">
-      <div class="card">
-        <div class="card-body">
-          <!--list container starts here-->
-          <div class="list-container">
-            <ul>
-              <li><a href="#">Paris</a></li>
-              <li><a href="#">Helsinki</a></li>
-              <li><a href="#">Copenhagen</a></li>
-            </ul>
-          </div>
-          <!--list container end div-->
-          <!--nav bar starts here-->
-          <div class="nav-bar">
-            <form id="search-form">
-              <input
-                type="text"
-                placeholder="Enter city name"
-                autofocus="off"
-                autocomplete="off"
-                class="search-bar"
-                id="search-input"
-              />
-              <input type="submit" value="Search" class="search-button" />
-              <input
-                type="submit"
-                value="Current Location"
-                id="current-location-button"
-              />
-            </form>
-          </div>
-          <!--nav bar ends here-->
+      <div class="weather-app-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <!--list container starts here-->
+            <div class="list-container">
+              <ul>
+                <li><a href="#">Paris</a></li>
+                <li><a href="#">Helsinki</a></li>
+                <li><a href="#">Copenhagen</a></li>
+              </ul>
+            </div>
+            <!--list container end div-->
+            <!--nav bar starts here-->
+            <div class="nav-bar">
+              <form id="search-form">
+                <input
+                  type="text"
+                  placeholder="Enter city name"
+                  autofocus="off"
+                  autocomplete="off"
+                  class="search-bar"
+                  id="search-input"
+                />
+                <input type="submit" value="Search" class="search-button" />
+                <input
+                  type="submit"
+                  value="Current Location"
+                  id="current-location-button"
+                />
+              </form>
+            </div>
+            <!--nav bar ends here-->
 
-          <!--city details left starts here-->
-          <div class="city-details">
-            <div class="list-details">
-              <ul>
-                <li><span class="berlin" id="city-submitted">Berlin</span></li>
-                <li>
-                  <span class="day-time"
-                    ><span id="now-day">Thursday</span
-                    ><span id="now-time">11:00</span></span
-                  >
-                </li>
-                <li><span class="weather" id="description">Sunny</span></li>
-              </ul>
+            <!--city details left starts here-->
+            <div class="city-details">
+              <div class="list-details">
+                <ul>
+                  <li>
+                    <span class="berlin" id="city-submitted">Berlin</span>
+                  </li>
+                  <li>
+                    <span class="day-time"
+                      ><span id="now-day">Thursday</span
+                      ><span id="now-time">11:00</span></span
+                    >
+                  </li>
+                  <li><span class="weather" id="description">Sunny</span></li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <!--city details left ends here-->
-          <!--city details right starts here-->
-          <div class="city-details2">
-            <div class="list-details2">
-              <ul>
-                <li>Humidity: <span id="humidity">77</span></li>
-                <li>Wind: <span id="wind">5</span>km/hr</li>
-              </ul>
+            <!--city details left ends here-->
+            <!--city details right starts here-->
+            <div class="city-details2">
+              <div class="list-details2">
+                <ul>
+                  <li>Humidity: <span id="humidity">77</span></li>
+                  <li>Wind: <span id="wind">5</span>km/hr</li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <!--city details right ends here-->
-          <!--temp container starts here-->
-          <div class="temp-container">
-            <p class="current-temp">
-              <i class="fa-solid fa-cloud-sun sun-cloud"></i>
-              <span class="degrees"
-                ><span id="temp-number">18</span
-                ><sup
-                  ><a href="#" id="temp-celsius">°c</a>|<a
-                    href="#"
-                    id="temp-fahrenheit"
-                    >°f</a
-                  ></sup
-                ></span
-              >
-            </p>
-          </div>
-          <!--temp container ends here-->
+            <!--city details right ends here-->
+            <!--temp container starts here-->
+            <div class="temp-container">
+              <p class="current-temp">
+                <i class="fa-solid fa-cloud-sun sun-cloud"></i>
+                <span class="degrees"
+                  ><span id="temp-number">18</span
+                  ><sup
+                    ><a href="#" id="temp-celsius">°c</a>|<a
+                      href="#"
+                      id="temp-fahrenheit"
+                      >°f</a
+                    ></sup
+                  ></span
+                >
+              </p>
+            </div>
+            <!--temp container ends here-->
 
-          <!--final grid starts here-->
+            <!--final grid starts here-->
 
-          <div class="row">
-            <div class="col">
-              <ul>
-                <li><span class="row-day">Thu</span></li>
-                <li><i class="fa-solid fa-sun"></i></li>
-                <li><span class="row-degree">23°C</span></li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul>
-                <li><span class="row-day">Fri</span></li>
-                <li><i class="fa-solid fa-sun"></i></li>
-                <li><span class="row-degree">23°C</span></li>
-              </ul>
-            </div>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li><span class="row-day">Thu</span></li>
+                  <li><i class="fa-solid fa-sun"></i></li>
+                  <li><span class="row-degree">23°C</span></li>
+                </ul>
+              </div>
+              <div class="col">
+                <ul>
+                  <li><span class="row-day">Fri</span></li>
+                  <li><i class="fa-solid fa-sun"></i></li>
+                  <li><span class="row-degree">23°C</span></li>
+                </ul>
+              </div>
 
-            <div class="col">
-              <ul>
-                <li><span class="row-day">Sat</span></li>
-                <li><i class="fa-solid fa-sun"></i></li>
-                <li><span class="row-degree">23°C</span></li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul>
-                <li><span class="row-day">Sun</span></li>
-                <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
-                <li><span class="row-degree">18°C</span></li>
-              </ul>
-            </div>
+              <div class="col">
+                <ul>
+                  <li><span class="row-day">Sat</span></li>
+                  <li><i class="fa-solid fa-sun"></i></li>
+                  <li><span class="row-degree">23°C</span></li>
+                </ul>
+              </div>
+              <div class="col">
+                <ul>
+                  <li><span class="row-day">Sun</span></li>
+                  <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
+                  <li><span class="row-degree">18°C</span></li>
+                </ul>
+              </div>
 
-            <div class="col">
-              <ul>
-                <li><span class="row-day">Mon</span></li>
-                <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
-                <li><span class="row-degree">18°C</span></li>
-              </ul>
+              <div class="col">
+                <ul>
+                  <li><span class="row-day">Mon</span></li>
+                  <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
+                  <li><span class="row-degree">18°C</span></li>
+                </ul>
+              </div>
             </div>
+            <!---->
           </div>
-          <!---->
         </div>
+        <p class="open-source">
+          <a href="https://github.com/Mayadev3/Weather-App" target="_blank"
+            >Open-source code</a
+          ><span class="my-name">, by Maya Barbir</span>
+        </p>
       </div>
     </div>
-    <p class="open-source">
-      <a href="https://github.com/Mayadev3/Weather-App" target="_blank"
-        >Open-source code</a
-      ><span class="my-name">, by Maya Barbir</span>
-    </p>
     <script src="app.js"></script>
   </body>
 </html>
