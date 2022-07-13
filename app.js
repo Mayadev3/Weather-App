@@ -12,9 +12,12 @@ function showTime() {
   let currentDay = days[now.getDay()];
   let htmlDay = document.querySelector("#now-day");
   htmlDay.innerHTML = `${currentDay} `;
-
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let currentTime = document.querySelector("#now-time");
-  currentTime.innerHTML = `${now.getHours()}:${now.getMinutes()}`;
+  currentTime.innerHTML = `${now.getHours()}:${minutes}`;
 }
 showTime();
 
