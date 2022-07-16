@@ -128,12 +128,15 @@
         font-weight: bold;
         font-size: 27px;
       }
-      .day-time,
+      #day-time,
       .weather {
         font-family: "poppins", serif;
         color: #909090;
         font-weight: 500;
         font-size: 15px;
+      }
+      .list-details ul li::first-letter {
+        text-transform: capitalize;
       }
       .weather {
         position: relative;
@@ -274,12 +277,7 @@
                   <li>
                     <span class="berlin" id="city-submitted">Berlin</span>
                   </li>
-                  <li>
-                    <span class="day-time"
-                      ><span id="now-day">Thursday</span
-                      ><span id="now-time">11:00</span></span
-                    >
-                  </li>
+                  <li id="day-time">Saturday 11:00</li>
                   <li><span class="weather" id="description">Sunny</span></li>
                 </ul>
               </div>
@@ -289,7 +287,7 @@
             <div class="city-details2">
               <div class="list-details2">
                 <ul>
-                  <li>Humidity: <span id="humidity">77</span></li>
+                  <li>Humidity: <span id="humidity">77</span>%</li>
                   <li>Wind: <span id="wind">5</span>km/hr</li>
                 </ul>
               </div>
