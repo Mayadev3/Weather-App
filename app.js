@@ -1,23 +1,3 @@
-/*function showTime() {
-  let now = new Date();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let currentDay = days[now.getDay()];
-  let htmlDay = document.querySelector("#now-day");
-  htmlDay.innerHTML = `${currentDay} `;
-
-  let currentTime = document.querySelector("#now-time");
-  currentTime.innerHTML = `${now.getHours()}:${now.getMinutes()}`;
-}
-//showTime();*/
-
 function formatDate(timestamp) {
   //This function will calculate the time from 1970 to today
   let date = new Date(timestamp);
@@ -99,8 +79,8 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ffe8ebc319a3f920065447a31ce0df0&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
+searchCity("Berlin"); //This function is called with the city Berlin so that the minute a person opens the app, it automatically searches a city
 
-//This function below was created so that the minute a person opens the app, it automatically searches a city
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
