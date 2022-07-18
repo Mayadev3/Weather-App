@@ -24,8 +24,10 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", showCity);
+
 function showTemp(response) {
-  console.log(response.data);
   let cityElement2 = (document.querySelector("#city-submitted").innerHTML =
     response.data.name);
 
@@ -49,6 +51,7 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
   celsiusTemperature = response.data.main.temp;
 }
 
