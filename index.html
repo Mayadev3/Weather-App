@@ -240,6 +240,13 @@
       .open-source {
         text-align: center;
       }
+      .active {
+        color: black;
+        cursor: default;
+      }
+      .active:hover {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
@@ -307,7 +314,7 @@
                 <span class="degrees"
                   ><span id="temp-number"></span
                   ><sup
-                    ><a href="#" id="temp-celsius">°C</a>|<a
+                    ><a href="#" id="temp-celsius" class="active">°C</a>|<a
                       href="#"
                       id="temp-fahrenheit"
                       >°F</a
