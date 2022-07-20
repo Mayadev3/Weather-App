@@ -53,6 +53,7 @@ function showTemp(response) {
   );
 
   celsiusTemperature = Math.round(response.data.main.temp);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -148,3 +149,11 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 displayForecast();
+
+function getForecast(coordinates) {
+  let apiKey = "8ffe8ebc319a3f920065447a31ce0df0";
+  let latitude = `${coordinates.lat}`;
+  let longitude = `${coordinates.lon}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}`;
+  console.log(apiUrl);
+}
