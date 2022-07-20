@@ -154,6 +154,7 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
   forecast.forEach(function (forecastDay, index) {
+    //the forecastDay parameter is equals to forecast variable
     if (index < 5)
       //we created the index to tell how many times the html should be repeated
       forecastHTML =
