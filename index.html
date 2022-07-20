@@ -247,6 +247,12 @@
       .active:hover {
         text-decoration: none;
       }
+      #forecast {
+        text-align: center;
+      }
+      .temp-min {
+        opacity: 0.6;
+      }
     </style>
   </head>
   <body>
@@ -326,46 +332,7 @@
             <!--temp container ends here-->
 
             <!--final grid starts here-->
-
-            <div class="row">
-              <div class="col">
-                <ul>
-                  <li><span class="row-day">Thu</span></li>
-                  <li><i class="fa-solid fa-sun"></i></li>
-                  <li><span class="row-degree">23°C</span></li>
-                </ul>
-              </div>
-              <div class="col">
-                <ul>
-                  <li><span class="row-day">Fri</span></li>
-                  <li><i class="fa-solid fa-sun"></i></li>
-                  <li><span class="row-degree">23°C</span></li>
-                </ul>
-              </div>
-
-              <div class="col">
-                <ul>
-                  <li><span class="row-day">Sat</span></li>
-                  <li><i class="fa-solid fa-sun"></i></li>
-                  <li><span class="row-degree">23°C</span></li>
-                </ul>
-              </div>
-              <div class="col">
-                <ul>
-                  <li><span class="row-day">Sun</span></li>
-                  <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
-                  <li><span class="row-degree">18°C</span></li>
-                </ul>
-              </div>
-
-              <div class="col">
-                <ul>
-                  <li><span class="row-day">Mon</span></li>
-                  <li><i class="fa-solid fa-cloud-sun clouds"></i></li>
-                  <li><span class="row-degree">18°C</span></li>
-                </ul>
-              </div>
-            </div>
+            <div id="forecast"></div>
             <!---->
           </div>
         </div>

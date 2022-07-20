@@ -126,3 +126,22 @@ let celsiusTemperature = "null";
 
 let celsiusLink = document.querySelector("#temp-celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let forecastElement = document.querySelector("#forecast");
+
+forecastHTML = `  <div class="row">`;
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+days.forEach(function (day) {
+  forecastHTML =
+    forecastHTML +
+    ` <div class="col">
+                  <ul>
+                    <li><span class="row-day">${day}</span></li>
+                    <li><i class="fa-solid fa-sun"></i></li>
+                    <li><span class="row-degree"><span class="temp-max">23°</span><span class="temp-min"> 18°</span></span></li>
+                  </ul>
+                </div>`;
+});
+forecastHTML = forecastHTML + `</div>`;
+
+forecastElement.innerHTML = forecastHTML;
