@@ -27,6 +27,14 @@ function formatDate(timestamp) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", showCity);
 
+function getForecast(coordinates) {
+  let apiKey = "8ffe8ebc319a3f920065447a31ce0df0";
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
   let cityElement2 = (document.querySelector("#city-submitted").innerHTML =
     response.data.name);
@@ -53,7 +61,9 @@ function showTemp(response) {
   );
 
   celsiusTemperature = Math.round(response.data.main.temp);
+
   getForecast(response.data.coord);
+  /*I created this  new function called getForecast here to use the response info latitude and longitude in my apiURL for my forecast*/
 }
 
 function searchCity(city) {
@@ -61,7 +71,6 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ffe8ebc319a3f920065447a31ce0df0&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
-searchCity("Berlin"); //This function is called with the city Berlin so that the minute a person opens the app, it automatically searches a city
 
 function showCity(event) {
   event.preventDefault();
@@ -91,7 +100,7 @@ function getPosition(position) {
   let latitude = `${position.coords.latitude}`;
   let longitude = `${position.coords.longitude}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(showCityWeather);
 }
 
@@ -108,52 +117,72 @@ function showFahrenheitTemp(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temp-number");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  //the codes about classList  are used for the shift between celsius and fahrenheit
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
-
-let fahrenheitLink = document.querySelector("#temp-fahrenheit");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 function showCelsiusTemp(event) {
   event.preventDefault();
   let celsiusTemp = document.querySelector("#temp-number");
   celsiusTemp.innerHTML = celsiusTemperature;
+  //the codes about classList  are used for the shift between celsius and fahrenheit
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
+let fahrenheitLink = document.querySelector("#temp-fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusTemperature = "null";
 
 let celsiusLink = document.querySelector("#temp-celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-function displayForecast() {
+function formatDay(timestamp) {
+  //This function is for concactinating the days in the displayForecast function
+  let now = new Date(timestamp * 1000);
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[now.getDay()];
+  return day;
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
-  forecastHTML = `  <div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col">
-                  <ul>
-                    <li><span class="row-day">${day}</span></li>
-                    <li><i class="fa-solid fa-sun"></i></li>
-                    <li><span class="row-degree"><span class="temp-max">23°</span><span class="temp-min"> 18°</span></span></li>
-                  </ul>
-                </div>`;
+  forecastHTML = `<div class="row">`;
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5)
+      //we created the index to tell how many times the html should be repeated
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+      
+                <ul>
+                  <li><span class="row-day">${formatDay(
+                    forecastDay.dt
+                  )}</span></li>
+                  <li><img src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png" class="icon2"/></li>
+                  <li>
+                    <span class="row-degree">
+                      <span class="temp-max" id="temp-max" id="temp-max">${Math.round(
+                        forecastDay.temp.max
+                      )}°</span>
+                      <span class="temp-min" id="temp-min" id="temp-min">${Math.round(
+                        forecastDay.temp.min
+                      )}°</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>`;
   });
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
 
-function getForecast(coordinates) {
-  let apiKey = "8ffe8ebc319a3f920065447a31ce0df0";
-  let latitude = `${coordinates.lat}`;
-  let longitude = `${coordinates.lon}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}`;
-  console.log(apiUrl);
-}
+searchCity("Berlin"); //This function is called with the city Berlin so that the minute a person opens the app, it automatically searches a city
