@@ -94,6 +94,7 @@ function showCityWeather(response) {
 
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = `${response.data.weather[0].description}`;
+  searchCity(response.data.name);
 }
 function getPosition(position) {
   let apiKey = "8ffe8ebc319a3f920065447a31ce0df0";
