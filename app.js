@@ -171,3 +171,9 @@ function displayForecast(response) {
 }
 
 searchCity("Berlin"); //This function is called with the city Berlin so that the minute a person opens the app, it automatically searches a city
+
+/*<img src="./images/${
+                  forecastDay.weather[0].icon
+                }.gif" alt="" width="40"></img>*/
+//This another way of making the icons change which is by changing the names of my newly downloaded icons into the names of the icons in the api and then using my file as the src
+//without the setAttribute
