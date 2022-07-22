@@ -79,30 +79,13 @@ function showCity(event) {
   searchCity(city);
 }
 
-function showCityWeather(response) {
-  let citySubmitted = document.querySelector("#city-submitted");
-  citySubmitted.innerHTML = `${response.data.name}`;
-
-  let cityTemp = document.querySelector("#temp-number");
-  cityTemp.innerHTML = Math.round(response.data.main.temp);
-
-  let cityWind = document.querySelector("#wind");
-  cityWind.innerHTML = `${response.data.wind.speed}`;
-
-  let cityHumidity = document.querySelector("#humidity");
-  cityHumidity.innerHTML = `${response.data.main.humidity}`;
-
-  let weatherDescription = document.querySelector("#description");
-  weatherDescription.innerHTML = `${response.data.weather[0].description}`;
-  searchCity(response.data.name);
-}
 function getPosition(position) {
   let apiKey = "8ffe8ebc319a3f920065447a31ce0df0";
   let latitude = `${position.coords.latitude}`;
   let longitude = `${position.coords.longitude}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(showCityWeather);
+  axios.get(apiUrl).then(showTemp);
 }
 
 function getCurrentLocation(event) {
