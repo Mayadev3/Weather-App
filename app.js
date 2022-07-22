@@ -172,6 +172,27 @@ function displayForecast(response) {
 
 searchCity("Berlin"); //This function is called with the city Berlin so that the minute a person opens the app, it automatically searches a city
 
+function getBerlin(event) {
+  event.preventDefault();
+  searchCity("Berlin");
+}
+let berlinLink = document.querySelector("#berlin");
+berlinLink.addEventListener("click", getBerlin);
+
+function getHelsinki(event) {
+  event.preventDefault();
+  searchCity("Helsinki");
+}
+let helsinkiLink = document.querySelector("#helsinki");
+helsinkiLink.addEventListener("click", getHelsinki);
+
+function getParis(event) {
+  event.preventDefault();
+  searchCity("Paris");
+}
+
+let parisLink = document.querySelector("#paris");
+parisLink.addEventListener("click", getParis);
 /*<img src="./images/${
                   forecastDay.weather[0].icon
                 }.gif" alt="" width="40"></img>*/
